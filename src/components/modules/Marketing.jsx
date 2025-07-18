@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'; // Importa useEffect
 import { Typography, Input, Button, Card, Row, Col, Space, message } from 'antd';
 import { BulbOutlined, CalendarOutlined, SolutionOutlined, SendOutlined, CopyOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons'; // Nuevos íconos
+import useResponsive from '../../hooks/useResponsive'; // Importar hook responsive
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -52,6 +53,7 @@ const Marketing = () => {
   const [generatedIdeas, setGeneratedIdeas] = useState([]);
   const [editableTemplates, setEditableTemplates] = useState([]); // Nuevo estado para plantillas editables
   const [messageApi, contextHolder] = message.useMessage();
+  const { isExtraSmall, isVerySmall, isSmall, getPadding } = useResponsive();
 
   // Usa useEffect para inicializar editableTemplates cuando el componente se monta
   useEffect(() => {
@@ -90,6 +92,32 @@ const Marketing = () => {
     console.log(`Guardando plantilla ${id}:`, editableTemplates.find(t => t.id === id)?.content);
   };
 
+  // Función helper para crear títulos responsivos
+  const createResponsiveTitle = (icon, fullText, shortText) => {
+    const text = isExtraSmall ? shortText : isVerySmall ? shortText : fullText;
+    const fontSize = isExtraSmall ? '14px' : isVerySmall ? '16px' : '18px';
+    const iconSize = isExtraSmall ? '12px' : isVerySmall ? '14px' : '16px';
+    
+    return (
+      <Title 
+        level={4} 
+        style={{ 
+          fontSize, 
+          margin: 0, 
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}
+      >
+        <span style={{ fontSize: iconSize, flexShrink: 0 }}>{icon}</span>
+        <span style={{ minWidth: 0 }}>{text}</span>
+      </Title>
+    );
+  };
+
   return (
     <div>
       {contextHolder}
@@ -100,18 +128,34 @@ const Marketing = () => {
 
       {/* Sección de Generación de Contenido */}
       <Card
-        title={<Title level={4}><BulbOutlined /> Generador de Ideas</Title>}
-        style={{ marginBottom: 24, borderRadius: 12 }}
+        title={createResponsiveTitle(<BulbOutlined />, "Generador de Ideas", "Ideas")}
+        style={{ 
+          marginBottom: isExtraSmall ? 16 : 24, 
+          borderRadius: isExtraSmall ? 8 : 12 
+        }}
+        styles={{
+          header: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          },
+          body: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          }
+        }}
       >
         <Space direction="vertical" style={{ width: '100%' }}>
           <Text strong>¿Qué tipo de negocio tienes o qué producto vendes?</Text>
           <Input
-            placeholder="Ej: Repostería casera, artesanías de cuero, consultoría financiera"
+            placeholder={isExtraSmall ? "Ej: Repostería, artesanías" : "Ej: Repostería casera, artesanías de cuero, consultoría financiera"}
             value={businessType}
             onChange={(e) => setBusinessType(e.target.value)}
           />
-          <Button type="primary" icon={<SendOutlined />} onClick={handleGenerateIdeas}>
-            Generar Ideas
+          <Button 
+            type="primary" 
+            icon={<SendOutlined />} 
+            onClick={handleGenerateIdeas}
+            size={isExtraSmall ? 'small' : 'middle'}
+          >
+            {isExtraSmall ? "Generar" : "Generar Ideas"}
           </Button>
           {generatedIdeas.length > 0 && (
             <div style={{ marginTop: 16 }}>
@@ -126,33 +170,76 @@ const Marketing = () => {
 
       {/* Sección de Plantillas Prediseñadas */}
       <Card
-        title={<Title level={4}><SolutionOutlined /> Plantillas Prediseñadas</Title>}
-        style={{ marginBottom: 24, borderRadius: 12 }}
+        title={createResponsiveTitle(<SolutionOutlined />, "Plantillas Prediseñadas", "Plantillas")}
+        style={{ 
+          marginBottom: isExtraSmall ? 16 : 24, 
+          borderRadius: isExtraSmall ? 8 : 12 
+        }}
+        styles={{
+          header: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          },
+          body: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          }
+        }}
       >
-        <Row gutter={[16, 16]}>
+        <Row gutter={[isExtraSmall ? 8 : 16, isExtraSmall ? 8 : 16]}>
           {editableTemplates.map((template) => ( // Usamos el nuevo estado editableTemplates
             <Col xs={24} md={12} key={template.id}> {/* Usamos template.id como key */}
-              <Card size="small" title={template.title} style={{ borderRadius: 8 }}>
-                <Paragraph>{template.description}</Paragraph>
+              <Card 
+                size="small" 
+                title={
+                  <div style={{ 
+                    fontSize: isExtraSmall ? '12px' : isVerySmall ? '13px' : '14px',
+                    lineHeight: '1.2',
+                    wordBreak: 'break-word'
+                  }}>
+                    {template.title}
+                  </div>
+                } 
+                style={{ 
+                  borderRadius: isExtraSmall ? 6 : 8,
+                  height: '100%'
+                }}
+                styles={{
+                  header: {
+                    padding: isExtraSmall ? '8px 12px' : '12px 16px',
+                    minHeight: 'auto'
+                  },
+                  body: {
+                    padding: isExtraSmall ? '8px 12px' : '12px 16px'
+                  }
+                }}
+              >
+                <Paragraph style={{ 
+                  fontSize: isExtraSmall ? '11px' : isVerySmall ? '12px' : '14px',
+                  marginBottom: isExtraSmall ? 8 : 12
+                }}>
+                  {template.description}
+                </Paragraph>
                 <TextArea
                   value={template.content} // Vinculado al estado
                   onChange={(e) => handleTemplateChange(template.id, e.target.value)} // Actualiza el estado al cambiar
-                  autoSize={{ minRows: 3, maxRows: 6 }}
+                  autoSize={{ minRows: 2, maxRows: 4 }}
+                  style={{ fontSize: isExtraSmall ? '11px' : '12px' }}
                 />
-                <Space style={{ marginTop: 10 }}>
+                <Space style={{ marginTop: 8 }} size={isExtraSmall ? 'small' : 'middle'}>
                   <Button
                     type="default"
                     icon={<CopyOutlined />}
                     onClick={() => handleCopyContent(template.content)}
+                    size={isExtraSmall ? 'small' : 'middle'}
                   >
-                    Copiar
+                    {isExtraSmall ? "" : "Copiar"}
                   </Button>
                   <Button
                     type="primary"
                     icon={<SaveOutlined />}
                     onClick={() => handleSaveTemplate(template.id)}
+                    size={isExtraSmall ? 'small' : 'middle'}
                   >
-                    Guardar
+                    {isExtraSmall ? "" : "Guardar"}
                   </Button>
                 </Space>
               </Card>
@@ -162,14 +249,31 @@ const Marketing = () => {
       </Card>
 
       {/* Sección de Calendario Editorial y Consejos */}
-      <Row gutter={[24, 24]}>
+      <Row gutter={[isExtraSmall ? 8 : isVerySmall ? 16 : 24, isExtraSmall ? 8 : isVerySmall ? 16 : 24]}>
         <Col xs={24} md={12}>
           <Card
-            title={<Title level={4}><CalendarOutlined /> Calendario Editorial Básico</Title>}
-            style={{ borderRadius: 12 }}
+            title={createResponsiveTitle(<CalendarOutlined />, "Calendario Editorial Básico", "Calendario")}
+            style={{ 
+              borderRadius: isExtraSmall ? 8 : 12,
+              height: '100%'
+            }}
+            styles={{
+              header: {
+                padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+              },
+              body: {
+                padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+              }
+            }}
           >
             {Object.entries(simulatedEditorialCalendar).map(([day, activity]) => (
-              <Paragraph key={day}>
+              <Paragraph 
+                key={day}
+                style={{ 
+                  fontSize: isExtraSmall ? '11px' : isVerySmall ? '12px' : '14px',
+                  marginBottom: isExtraSmall ? 4 : 8
+                }}
+              >
                 <Text strong>{day}:</Text> {activity}
               </Paragraph>
             ))}
@@ -177,13 +281,32 @@ const Marketing = () => {
         </Col>
         <Col xs={24} md={12}>
           <Card
-            title={<Title level={4}><SolutionOutlined /> Consejos para el Engagement</Title>}
-            style={{ borderRadius: 12 }}
+            title={createResponsiveTitle(<SolutionOutlined />, "Consejos para el Engagement", "Consejos")}
+            style={{ 
+              borderRadius: isExtraSmall ? 8 : 12,
+              height: '100%'
+            }}
+            styles={{
+              header: {
+                padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+              },
+              body: {
+                padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+              }
+            }}
           >
-            <ul style={{ paddingLeft: 20 }}>
+            <ul style={{ 
+              paddingLeft: isExtraSmall ? 16 : 20,
+              margin: 0
+            }}>
               {engagementTips.map((tip, index) => (
                 <li key={index}>
-                  <Paragraph style={{ marginBottom: 0 }}>{tip}</Paragraph>
+                  <Paragraph style={{ 
+                    marginBottom: isExtraSmall ? 4 : 8,
+                    fontSize: isExtraSmall ? '11px' : isVerySmall ? '12px' : '14px'
+                  }}>
+                    {tip}
+                  </Paragraph>
                 </li>
               ))}
             </ul>

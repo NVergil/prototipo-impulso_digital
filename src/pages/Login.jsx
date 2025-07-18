@@ -49,6 +49,7 @@ const Login = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: '16px',
       }}
     >
       {contextHolder}
@@ -56,12 +57,18 @@ const Login = () => {
         title="Iniciar sesión"
         style={{
           maxWidth: 500,
-          minWidth: 300,
+          minWidth: 'auto',
           width: '100%',
-          margin: '0 2rem',
+          margin: 0,
         }}
         styles={{
-          header: { fontSize: '1.5rem' },
+          header: { 
+            fontSize: window.innerWidth <= 360 ? '1.2rem' : window.innerWidth <= 480 ? '1.3rem' : '1.5rem',
+            padding: window.innerWidth <= 360 ? '12px 16px' : '16px 24px'
+          },
+          body: {
+            padding: window.innerWidth <= 360 ? '12px 16px' : window.innerWidth <= 480 ? '16px 20px' : '24px'
+          }
         }}
       >
         <Form

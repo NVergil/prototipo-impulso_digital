@@ -57,13 +57,40 @@ const Diagnostico = () => {
     }
   };
 
+  const isVerySmall = window.innerWidth <= 480;
+  const isExtraSmall = window.innerWidth <= 360;
+  
   return (
-    <div style={{ padding: 24, maxWidth: 800, margin: 'auto' }}>
+    <div style={{ 
+      padding: isExtraSmall ? 8 : isVerySmall ? 16 : 24, 
+      maxWidth: 800, 
+      margin: 'auto',
+      width: '100%'
+    }}>
       {contextHolder}
       <Card
-        style={{ borderRadius: 12, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}
+        style={{ 
+          borderRadius: isExtraSmall ? 8 : 12, 
+          boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+          margin: isExtraSmall ? '8px 0' : '16px 0'
+        }}
+        styles={{
+          header: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          },
+          body: {
+            padding: isExtraSmall ? '12px 16px' : isVerySmall ? '16px 20px' : '24px'
+          }
+        }}
         title={
-          <Title level={3} style={{ textAlign: 'center', marginBottom: 0 }}>
+          <Title 
+            level={3} 
+            style={{ 
+              textAlign: 'center', 
+              marginBottom: 0,
+              fontSize: isExtraSmall ? '16px' : isVerySmall ? '18px' : '20px'
+            }}
+          >
             <QuestionCircleOutlined /> ¡Cuéntanos de tu negocio!
           </Title>
         }
