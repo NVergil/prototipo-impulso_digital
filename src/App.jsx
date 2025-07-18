@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Diagnostico from './pages/Diagnostic'; // Asegúrate de que esta es la ruta correcta si es 'Diagnostic.jsx'
+import { Spin } from 'antd'; // Componente Spin de Ant Design para mostrar un spinner mientras carga
+
 // import About from './pages/About'; // Si no estás usando About, puedes eliminar esta línea
 import './App.css';
 
@@ -45,7 +47,9 @@ const AppContent = () => {
   if (loading || diagnosisLoading) {
     return (
       <Layout style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div>Cargando aplicación...</div>
+        <div>
+          <Spin size="large" tip="Cargando..." />
+        </div>
       </Layout>
     );
   }

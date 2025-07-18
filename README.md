@@ -209,7 +209,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 Para preguntas o sugerencias, puedes contactar a través de:
 - GitHub Issues
-- Email: [tu-email@ejemplo.com]
+- Email: [asca123321@gmail.com]
 
 ---
 
