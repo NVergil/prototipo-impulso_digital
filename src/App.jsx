@@ -83,18 +83,6 @@ const AppContent = () => {
           </PrivateRoute>
         } />
 
-        {/* Si tienes una página About, descomenta y úsala como Dashboard:
-        <Route path="/about" element={
-          <PrivateRoute>
-            {isDiagnosisComplete ? (
-              <AppLayout><About /></AppLayout>
-            ) : (
-              <Navigate to="/diagnostico" replace />
-            )}
-          </PrivateRoute>
-        } />
-        */}
-
         {/* Ruta comodín para cualquier otra URL no definida */}
         <Route path="*" element={
           user ? ( // Si hay un usuario logeado

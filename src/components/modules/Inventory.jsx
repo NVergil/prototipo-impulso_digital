@@ -197,7 +197,7 @@ const Inventory = () => {
         {/* Sección de Gestión de Productos (Tabla y Botón Añadir) */}
         <Card
           title="Lista de Productos"
-          bordered={false}
+          variant={false}
           extra={<Button type="primary" icon={<PlusOutlined />} onClick={handleAddProduct}>Añadir Producto</Button>}
         >
           <Table
@@ -217,7 +217,7 @@ const Inventory = () => {
         open={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
         footer={null} // Ocultar botones por defecto del modal
-        destroyOnClose={true} // Asegura que el formulario se resetee al cerrar
+        destroyOnHidden={true} // Asegura que el formulario se resetee al cerrar
       >
         <ProductForm
           onProductSaved={handleProductSaved} // Esta función actualizará el estado `products`

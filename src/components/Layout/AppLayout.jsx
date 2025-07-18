@@ -97,7 +97,7 @@ const AppLayout = ({ children }) => {
             letterSpacing: '0.5px'
           }}
         >
-          {isExtraSmall ? '🚀 Impulso' : '🚀 Impulso Digital'}
+          <img src="/logo.svg" alt="" style={{ height: 100, width: 'auto', objectFit: 'contain', display: 'inline-block', verticalAlign: 'middle', margin: 0, padding: 0, background: 'none' }} />
         </div>
         
         {isMobile ? (

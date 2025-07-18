@@ -112,6 +112,10 @@ a:hover {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
   padding: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 8px;
 }
 
 .dashboard-header {
@@ -144,6 +148,7 @@ a:hover {
 .dashboard-module-card {
   animation: bounceIn 0.8s ease-out;
   animation-fill-mode: both;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .dashboard-module-card:nth-child(1) {
@@ -212,5 +217,33 @@ a:hover {
   
   .dashboard-header h2 {
     font-size: 20px;
+  }
+}
+
+/* Dashboard responsive layout for desktop/tablet and mobile */
+.dashboard-modules-desktop {
+  display: block;
+}
+.dashboard-modules-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dashboard-modules-desktop {
+    display: none !important;
+  }
+  .dashboard-modules-mobile {
+    display: block !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: #fff;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .dashboard-container {
+    padding-bottom: 80px;
   }
 }
