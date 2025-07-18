@@ -102,28 +102,6 @@ const Dashboard = () => {
         ))}
       </Row>
 
-      {/* REMOVER ESTE BLOQUE: Ya no es necesario el indicador globalmente centrado */}
-      {/* {selectedModule && (
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            marginTop: '16px',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              width: '80px',
-              height: '4px',
-              background: activeIndicatorColor,
-              borderRadius: '2px',
-            }}
-          />
-        </div>
-      )} */}
-
       {selectedModule && (
         <div
           style={{
