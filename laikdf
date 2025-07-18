@@ -1,0 +1,32 @@
+[33mcommit f7dab657cdfcfd35fa34cb0af2c2f78e041ce38a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: VerDanT <asca123321@gmail.com>
+Date:   Thu Jul 17 23:55:14 2025 -0600
+
+    Responsive changes
+
+[33mcommit 463a6d942e8a97aa475290bf415f7cf0ad62861f[m
+Author: VerDanT <asca123321@gmail.com>
+Date:   Thu Jul 17 23:09:03 2025 -0600
+
+    docs: Update README with comprehensive project documentation
+    
+    - Add detailed project description and features
+    - Include complete technology stack with versions
+    - Add installation and configuration instructions
+    - Document project structure with actual files
+    - Include Supabase setup and environment variables
+    - Add deployment instructions for Netlify
+    - Include troubleshooting section for common issues
+    - Add testing and debugging utilities documentation
+
+[33mcommit bebb2b8f6e1beb53369b956db51b61220c119fb0[m
+Author: VerDanT <asca123321@gmail.com>
+Date:   Thu Jul 17 22:12:26 2025 -0600
+
+    Update README.md
+
+[33mcommit 6ea1daa59b160d11821e1ca83b8215b13a8462f0[m
+Author: VerDanT <asca123321@gmail.com>
+Date:   Thu Jul 17 22:00:35 2025 -0600
+
+    Initial commit: Impulso Digital project setup with React, Vite, Ant Design and Supabase
