@@ -77,22 +77,27 @@ const AppLayout = ({ children }) => {
           alignItems: 'center',
           padding: isExtraSmall ? '0 8px' : isVerySmall ? '0 12px' : isMobile ? '0 16px' : '0 50px',
           height: 'auto',
-          minHeight: isExtraSmall ? '56px' : '64px'
+          minHeight: isExtraSmall ? '56px' : '64px',
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          borderBottom: 'none'
         }}
       >
         <div 
           style={{ 
             color: 'white', 
-            fontSize: isExtraSmall ? '14px' : isVerySmall ? '15px' : isMobile ? '16px' : '18px', 
-            fontWeight: 'bold', 
+            fontSize: isExtraSmall ? '14px' : isVerySmall ? '15px' : isMobile ? '16px' : '20px', 
+            fontWeight: '700', 
             marginRight: isExtraSmall ? '6px' : isVerySmall ? '8px' : isMobile ? '10px' : '20px',
             flex: isMobile ? '1' : 'none',
             whiteSpace: 'nowrap',
             overflow: 'hidden',
-            textOverflow: 'ellipsis'
+            textOverflow: 'ellipsis',
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+            letterSpacing: '0.5px'
           }}
         >
-          {isExtraSmall ? 'Impulso' : 'Impulso Digital'}
+          {isExtraSmall ? '🚀 Impulso' : '🚀 Impulso Digital'}
         </div>
         
         {isMobile ? (
@@ -115,7 +120,11 @@ const AppLayout = ({ children }) => {
               size={isExtraSmall ? 'small' : 'middle'}
               style={{
                 padding: isExtraSmall ? '2px 6px' : '4px 8px',
-                fontSize: isExtraSmall ? '11px' : '12px'
+                fontSize: isExtraSmall ? '11px' : '12px',
+                background: 'rgba(255,255,255,0.2)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
               }}
             >
               {isExtraSmall ? '' : 'Salir'}
@@ -124,17 +133,23 @@ const AppLayout = ({ children }) => {
         ) : (
           <>
             <Menu
-              theme="dark"
+              theme="transparent"
               mode="horizontal"
               selectedKeys={[location.pathname]}
               items={menuItems}
-              style={{ flex: 1, minWidth: 0 }}
+              style={{ flex: 1, minWidth: 0, color: '#fff'}}
             />
             <Button
               type="primary"
               icon={<LogoutOutlined />}
               onClick={handleLogout}
-              style={{ marginLeft: 'auto' }}
+              style={{ 
+                marginLeft: 'auto',
+                background: 'rgba(255,255,255,0.2)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}
             >
               Cerrar Sesión
             </Button>
@@ -164,7 +179,7 @@ const AppLayout = ({ children }) => {
       
       <Content 
         style={{ 
-          padding: isExtraSmall ? '0 8px' : isVerySmall ? '0 12px' : isMobile ? '0 16px' : '0 48px',
+          padding: 0,
           minHeight: `calc(100vh - ${isExtraSmall ? '56px' : '64px'} - 69px)` // Altura total - header - footer
         }}
       >
@@ -172,7 +187,6 @@ const AppLayout = ({ children }) => {
           style={{
             background: colorBgContainer,
             minHeight: 280,
-            padding: isExtraSmall ? 8 : isVerySmall ? 12 : isMobile ? 16 : 24,
             borderRadius: isExtraSmall ? 8 : borderRadiusLG,
             marginTop: isExtraSmall ? 8 : 16,
             overflow: 'auto'

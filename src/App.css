@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estilos para enlaces */
@@ -29,20 +30,187 @@ a:hover {
 
 /* Estilos para las cards */
 .ant-card {
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .ant-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Animaciones personalizadas */
 @keyframes fadeInLine {
   from {
     width: 0;
     opacity: 0;
   }
   to {
-    width: 60%; /* o el ancho que hayas definido */
+    width: 70%;
     opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Efectos de brillo para tarjetas */
+.shine-effect {
+  animation: shimmer 2s infinite;
+}
+
+.card-hover:hover .shine-effect {
+  animation: shimmer 0.6s ease-in-out;
+}
+
+/* Estilos para el dashboard */
+.dashboard-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 32px;
+  animation: slideInUp 0.8s ease-out;
+}
+
+.dashboard-stats {
+  margin-bottom: 32px;
+}
+
+.dashboard-stats .ant-card {
+  animation: slideInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.dashboard-stats .ant-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.dashboard-stats .ant-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dashboard-stats .ant-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.dashboard-module-card {
+  animation: bounceIn 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.dashboard-module-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.dashboard-module-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.dashboard-module-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Efectos de gradientes modernos */
+.gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #564ad4 0%, #6a4190 100%);
+}
+
+/* Responsive mejoras */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 24px;
+  }
+  
+  .dashboard-module-card {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding: 12px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 20px;
   }
 }
