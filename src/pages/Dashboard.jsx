@@ -19,7 +19,7 @@ const dashboardCards = [
   {
     title: 'Marketing Digital',
     subtitle: 'Impulsa tu presencia online',
-    icon: '/public/bottom_nav/marketing.svg',
+    icon: '/bottom_nav/marketing.svg',
     key: 'marketing',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     shadowColor: 'rgba(102, 126, 234, 0.4)',
@@ -27,7 +27,7 @@ const dashboardCards = [
   {
     title: 'Gestión Financiera',
     subtitle: 'Controla tus ingresos y gastos',
-    icon: '/public/bottom_nav/finanzas.svg',
+    icon: '/bottom_nav/finanzas.svg',
     key: 'finanzas',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     shadowColor: 'rgba(240, 147, 251, 0.4)',
@@ -35,7 +35,7 @@ const dashboardCards = [
   {
     title: 'Inicio',
     subtitle: 'Resumen y metas diarias',
-    icon: '/public/bottom_nav/home.svg',
+    icon: '/bottom_nav/home.svg',
     key: 'home',
     gradient: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
     shadowColor: 'rgba(252, 182, 159, 0.4)',
@@ -43,7 +43,7 @@ const dashboardCards = [
   {
     title: 'Ajustes de Usuario',
     subtitle: '',
-    icon: '/public/bottom_nav/user.svg',
+    icon: '/bottom_nav/user.svg',
     key: 'user-settings',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     shadowColor: 'rgba(79, 172, 254, 0.4)',
@@ -51,7 +51,7 @@ const dashboardCards = [
   {
     title: 'Control de Inventario',
     subtitle: 'Administra tu stock eficientemente',
-    icon: '/public/bottom_nav/inventario.svg',
+    icon: '/bottom_nav/inventario.svg',
     key: 'inventario',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     shadowColor: 'rgba(79, 172, 254, 0.4)',
