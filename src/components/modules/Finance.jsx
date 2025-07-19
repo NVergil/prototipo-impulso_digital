@@ -96,7 +96,7 @@ const Finanzas = () => {
         </Card>
 
         {/* Sección de Resumen Financiero (ejemplo) */}
-        <Card title="Resumen Financiero Clave (Simulado)" bordered={false}>
+        <Card title="Resumen Financiero Clave (Simulado)" variant={false}>
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12} md={8}>
               <Card size="small" title="Ingresos Totales (Año)">

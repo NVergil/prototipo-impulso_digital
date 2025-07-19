@@ -53,6 +53,7 @@ const Register = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        margin: '0 2rem',
       }}
     >
       {contextHolder} {/* Para mostrar los mensajes de Ant Design */}

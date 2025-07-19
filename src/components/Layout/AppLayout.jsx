@@ -78,8 +78,7 @@ const AppLayout = ({ children }) => {
           padding: isExtraSmall ? '0 8px' : isVerySmall ? '0 12px' : isMobile ? '0 16px' : '0 50px',
           height: 'auto',
           minHeight: isExtraSmall ? '56px' : '64px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          background: '#FFF',
           borderBottom: 'none'
         }}
       >
@@ -103,17 +102,6 @@ const AppLayout = ({ children }) => {
         {isMobile ? (
           <>
             <Button
-              type="text"
-              icon={<MenuOutlined />}
-              onClick={showDrawer}
-              style={{ 
-                color: 'white', 
-                marginRight: isExtraSmall ? '4px' : '8px',
-                padding: isExtraSmall ? '2px 4px' : '4px 8px'
-              }}
-              size={isExtraSmall ? 'small' : 'middle'}
-            />
-            <Button
               type="primary"
               icon={<LogoutOutlined />}
               onClick={handleLogout}
@@ -121,7 +109,6 @@ const AppLayout = ({ children }) => {
               style={{
                 padding: isExtraSmall ? '2px 6px' : '4px 8px',
                 fontSize: isExtraSmall ? '11px' : '12px',
-                background: 'rgba(255,255,255,0.2)',
                 border: '1px solid rgba(255,255,255,0.3)',
                 backdropFilter: 'blur(10px)',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
@@ -132,20 +119,12 @@ const AppLayout = ({ children }) => {
           </>
         ) : (
           <>
-            <Menu
-              theme="transparent"
-              mode="horizontal"
-              selectedKeys={[location.pathname]}
-              items={menuItems}
-              style={{ flex: 1, minWidth: 0, color: '#fff'}}
-            />
             <Button
               type="primary"
               icon={<LogoutOutlined />}
               onClick={handleLogout}
               style={{ 
                 marginLeft: 'auto',
-                background: 'rgba(255,255,255,0.2)',
                 border: '1px solid rgba(255,255,255,0.3)',
                 backdropFilter: 'blur(10px)',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
@@ -204,7 +183,6 @@ const AppLayout = ({ children }) => {
         }}
       >
         Impulso Digital ©{new Date().getFullYear()}
-        {!isMobile && ' Creado con Vite + React'}
       </Footer>
     </Layout>
   );

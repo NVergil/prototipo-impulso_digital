@@ -143,7 +143,7 @@ const Marketing = () => {
         }}
       >
         <Space direction="vertical" style={{ width: '100%' }}>
-          <Text strong>¿Qué tipo de negocio tienes o qué producto vendes?</Text>
+          <Text strong>¿Colocamos otro producto, o utilizamos "Producto / Servicio de encuesta"?</Text>
           <Input
             placeholder={isExtraSmall ? "Ej: Repostería, artesanías" : "Ej: Repostería casera, artesanías de cuero, consultoría financiera"}
             value={businessType}

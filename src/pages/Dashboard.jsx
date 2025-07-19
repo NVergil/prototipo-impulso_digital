@@ -9,11 +9,12 @@ import Marketing from '../components/modules/Marketing';
 import Finanzas from '../components/modules/Finance';    
 import Inventario from '../components/modules/Inventory'; 
 import Home from '../components/modules/Home';
+import Aprendizaje from '../components/modules/Aprendizaje'; 
 
 const { Title, Text } = Typography;
 
 // Color del indicador de modulo activo
-const activeIndicatorColor = '#722ed1';
+// const activeIndicatorColor = '#722ed1';
 
 const dashboardCards = [
   {
@@ -41,10 +42,10 @@ const dashboardCards = [
     shadowColor: 'rgba(252, 182, 159, 0.4)',
   },
   {
-    title: 'Ajustes de Usuario',
+    title: 'Ruta de aprendizaje',
     subtitle: '',
     icon: '/bottom_nav/user.svg',
-    key: 'user-settings',
+    key: 'aprendizaje',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     shadowColor: 'rgba(79, 172, 254, 0.4)',
   },
@@ -72,6 +73,8 @@ function Dashboard() {
         return <Inventario />;
       case 'home':
         return <Home />;
+      case 'aprendizaje':
+        return <Aprendizaje />;
       default:
         return null;
     }

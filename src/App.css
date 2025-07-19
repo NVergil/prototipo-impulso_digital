@@ -1,4 +1,8 @@
 /* Estilos globales para la aplicación */
+* {
+  font-family: 'Inter' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
 #root {
   margin: 0;
   padding: 0;

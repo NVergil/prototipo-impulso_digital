@@ -62,7 +62,7 @@ const Login = () => {
             justifyContent: 'center',
             alignItems: 'center',
             background: '#f9f6f2',
-            padding: '0',
+            padding: '2rem',
           }}
         >
           {contextHolder}
